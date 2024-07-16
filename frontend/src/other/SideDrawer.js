@@ -17,7 +17,7 @@ import {
   DrawerOverlay,
 } from "@chakra-ui/modal";
 import { Tooltip } from "@chakra-ui/tooltip";
-import { BellIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import { Avatar, AvatarBadge } from "@chakra-ui/avatar";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -25,8 +25,6 @@ import axios from "axios";
 import { useToast } from "@chakra-ui/toast";
 import { Spinner } from "@chakra-ui/spinner";
 import ProfileModal from "./ProfileModal";
-import NotificationBadge from "react-notification-badge";
-import { Effect } from "react-notification-badge";
 import { ChatState } from "../context/ChatProvider";
 import { getSender } from "../config/ChatLogics";
 import UserListItem from "../components/UserAvatar/UserListItem";
@@ -122,17 +120,6 @@ function SideDrawer() {
     }
   };
 
-  const notificationCountStyle = {
-    backgroundColor: "red",
-    color: "white",
-    borderRadius: "50%",
-    padding: "2px 6px",
-    fontSize: "12px",
-    position: "absolute",
-    top: "0",
-    right: "0",
-  };
-
   return (
     <>
       <Box
@@ -145,9 +132,9 @@ function SideDrawer() {
         borderWidth="5px"
       >
         <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
-          <Button variant="ghost" onClick={onOpen}>
+          <Button variant="ghost" onClick={onOpen} border="1px">
             <i className="fas fa-search"></i>
-            <Text d={{ base: "none", md: "flex" }} px={4}>
+            <Text display={{ base: "none", md: "flex" }} px={4}>
               Search User
             </Text>
           </Button>

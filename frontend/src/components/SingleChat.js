@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ChatState } from "../context/ChatProvider";
 import io from "socket.io-client";
-// import "../../styles.css";
+import "./styles.css";
 import {
   Box,
   FormControl,
