@@ -16,10 +16,9 @@ import {
   DrawerHeader,
   DrawerOverlay,
 } from "@chakra-ui/modal";
-import { Badge } from "@chakra-ui/react";
 import { Tooltip } from "@chakra-ui/tooltip";
 import { BellIcon, ChevronDownIcon } from "@chakra-ui/icons";
-import { Avatar } from "@chakra-ui/avatar";
+import { Avatar, AvatarBadge } from "@chakra-ui/avatar";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
@@ -32,7 +31,7 @@ import { ChatState } from "../context/ChatProvider";
 import { getSender } from "../config/ChatLogics";
 import UserListItem from "../components/UserAvatar/UserListItem";
 import ChatLoading from "../components/ChatLoading";
-
+import bell from "./bell.png";
 function SideDrawer() {
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
@@ -158,8 +157,14 @@ function SideDrawer() {
         </Text>
         <div>
           <Menu>
-            <MenuButton p={1}>
-              <BellIcon fontSize="2xl" m={1}></BellIcon>
+            <MenuButton as={Button} bg="white">
+              <Avatar size="25em" cursor="pointer" name={user.name} src={bell}>
+                {notification.length > 0 && (
+                  <AvatarBadge boxSize="1.25em" bg="red.500">
+                    {notification.length}
+                  </AvatarBadge>
+                )}
+              </Avatar>
             </MenuButton>
             <MenuList pl={2}>
               {!notification.length && "No New Messages"}
@@ -185,7 +190,7 @@ function SideDrawer() {
                 cursor="pointer"
                 name={user.name}
                 src={user.pic}
-              />
+              ></Avatar>
             </MenuButton>
             <MenuList>
               <ProfileModal user={user}>
