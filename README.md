@@ -2,6 +2,8 @@
 
 Check out the live demo [here](https://chat-app-ss6o.onrender.com).
 
+## Instant Message & typing status
+
 ![Instant Message & typing status](./screenshot/demo.gif)
 
 ## Screenshots
