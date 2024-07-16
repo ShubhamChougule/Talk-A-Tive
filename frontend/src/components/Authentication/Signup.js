@@ -100,7 +100,7 @@ const Signup = () => {
     if (pics.type === "image/jpeg" || pics.type === "image/png") {
       const data = new FormData();
       data.append("file", pics);
-      data.append("upload_preset", "chat-app");
+      data.append("upload_preset", "chatMernApp");
       data.append("cloud_name", "df8m7yxcb");
       fetch("https://api.cloudinary.com/v1_1/df8m7yxcb/image/upload", {
         method: "post",
